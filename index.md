@@ -1,37 +1,75 @@
-## Welcome to GitHub Pages
+### React DatePicker Jalaali
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-You can use the [editor on GitHub](https://github.com/Masoooud/react-datepicker-jalaali/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+[![npm](https://img.shields.io/npm/v/react-datepicker-jalaali.svg)](https://www.npmjs.com/package/react-datepicker-jalaali)
+[![npm](https://img.shields.io/npm/dt/react-datepicker-jalaali.svg)](https://www.npmjs.com/package/react-datepicker-jalaali)
+[![Build Status](https://travis-ci.org/mberneti/react-datepicker2.svg?branch=master)](https://travis-ci.org/masoooud/react-datepicker-jalaali)
+[![Dependency Status](https://david-dm.org/mberneti/react-datepicker2.svg)](https://david-dm.org/masoooud/react-datepicker-jalaali)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A simple and reusable Datepicker component for React with persian jalali calendar support [Demo](https://masoooud.github.io/react-datepicker-jalaali/).
 
-### Markdown
+This package uses [react-persian-datepicker](https://github.com/evandhq/react-persian-datepicker) project under the hood.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Installation
 
-```markdown
-Syntax highlighted code block
+The package can be installed via NPM:
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+npm install react-datepicker-jalaali --save
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+At this point you can import react-datepicker2 and its styles in your application as follows:
 
-### Jekyll Themes
+```js
+import DatePicker from 'react-datepicker2';
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Masoooud/react-datepicker-jalaali/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Below is a simple example on how to use the Datepicker in a React view.
+
+```js
+import React from 'react'
+import DatePicker from 'react-datepicker-jalaali';
+
+export default class ReactClass extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: moment() };
+  }
+  render() {
+    return <DatePicker
+      onChange={value => this.setState({ value })}
+      value={this.state.value}
+    />
+  }
+}
+```
+
+## Configuration
+
+The most basic use of the DatePicker can be described with:
+
+```js
+<DatePicker onChange={value => this.setState({ value })} value={this.state.value} />
+```
+
+
+## Built With
+
+* [moment-jalaali](https://github.com/jalaali/moment-jalaali) - A Jalaali (Jalali, Persian, Khorshidi, Shamsi) calendar system plugin for moment.js.
+
+## Thanks
+Special thanks to [@mohebifar](https://github.com/mohebifar) for his open-source project which this component is based on.
+
+## Contributing
+Contributions are **welcome** and will be fully **credited**.
+I'd be happy to accept PRs for that.
+
+## License
+
+Copyright (c) 2020 [masoooud](https://twitter.com/masoudmoharrami) Inc. and individual contributors. Licensed under MIT license, see [LICENSE](LICENSE) for the full license.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Having trouble with Pages? Send me email and I'll respond as soon as possible.
