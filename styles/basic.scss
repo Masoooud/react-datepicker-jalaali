@@ -1,0 +1,258 @@
+.calendarContainer {
+    position: absolute;
+    z-index: 100;
+    border-radius: 3px;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+    border: 1px solid #cccccc;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    .dayPickerContainer:after,
+    .monthsList:after,
+    .daysOfWeek:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .heading {
+        height: 42px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        button {
+            border-radius: 3px;
+            background: none;
+            border: 1px solid #F7F7F7;
+            text-align: center;
+            line-height: 30px;
+            height: 32px;
+            cursor: pointer;
+            &:hover {
+                background-color: #f2f2f2;
+            }
+            span {
+                line-height: 35px;
+            }
+            svg {
+                width: 10px;
+            }
+            &.prev {
+                float: right;
+            }
+            &.next {
+                float: left;
+            }
+            &.title {
+                line-height: 32px;
+                // width: 120px;
+                height: 32px;
+                font-size: 1em;
+                border: 1px solid #F7F7F7;
+                text-align: center;
+                display: inline-block;
+                font-weight: normal;
+            }
+        }
+        span {
+            flex:1;
+            line-height: 45px;
+            text-align: center;
+        }
+    }
+    .dayWrapper {
+        padding: 5;
+        float: right;
+        width: 14.28571429%;
+        button {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            height: 36px;
+            border-radius: 3px;
+            cursor: pointer;
+            &:hover {
+                background-color: #eeeeff;
+            }
+            &[disabled] {
+                color: #aaa;
+                cursor: not-allowed;
+                background-color: #eeeeee
+            }
+        }
+        &[disabled] {
+            color: #aaa;
+            cursor: not-allowed;
+            background-color: #ebebeb;
+        }
+        &.selected {
+            background-color: #337ab7;
+            color: #ffffff;
+            button {
+                border-radius: 10;
+            }
+        }
+        &:not(.currentMonth) {
+            button {
+                opacity: .5;
+            }
+        }
+    }
+    .daysOfWeek {
+        border-bottom: 1px solid #EEE;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        display: flex;
+        width: 100%;
+        div {
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+    }
+    .monthsList {
+        clear: both;
+        width: 100%;
+        button {
+            width: 33.33333332%;
+            height: 25%;
+            float: right;
+            border: 1px solid #F9F9F9;
+            outline: none;
+            font-size: 1em;
+            background: #fff;
+            padding: 10px 0;
+            cursor: pointer;
+            &:hover {
+                background: #eeeeee;
+                cursor: pointer;
+            }
+        }
+        .monthWrapper {
+            &.selected {
+                background-color: #337ab7;
+                color: #ffffff;
+                button {
+                    background-color: #337ab7;
+                }
+            }
+        }
+    }
+    .yearsList {
+        clear: both;
+        width: 100%;
+        height: 200px;
+        overflow-y: scroll;
+        button {
+            width: 33.33333332%;
+            height: 25%;
+            float: right;
+            border: 1px solid #F9F9F9;
+            outline: none;
+            font-size: 1em;
+            background: #fff;
+            padding: 10px 0;
+            cursor: pointer;
+            &:hover {
+                background: #eeeeee;
+                cursor: pointer;
+            }
+        }
+        .selected {
+            background-color: #337ab7;
+            color: #ffffff;
+            button {
+                background-color: #337ab7;
+            }
+        }
+    }
+    .selected {
+        button {
+            &:hover {
+                background-color: #337ab7;
+                color: #ffffff;
+            }
+            &:active {
+                background-color: #337ab7;
+                color: #ffffff;
+            }
+            &:focus {
+                background-color: #337ab7;
+                color: #ffffff;
+            }
+        }
+    }
+    .timePicker{
+        .title {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .tp {
+            position: absolute;
+            padding: 10px;
+            width: 200px;
+            z-index: 1001;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+                0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+                0 22.3px 17.9px rgba(0, 0, 0, 0.072);
+
+            input {
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            button{
+                margin: 5px 0;
+                border: 1px solid #cccccc;
+                border-radius: 4;
+                min-width: 33px;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+
+                div {
+                    width: 50%;
+                    height: 200px;
+                    overflow-y: auto;
+                    padding: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: center;
+                    button {
+                        display: block;
+                        margin: 3px;
+                    }
+                }
+            }
+            transition: 0.5s all ease;
+            &.hidden{
+                display: none;
+            }
+            .done{
+                width: 100%;
+                margin-top: 10px;
+                background-color: #337ab7;
+                border-radius: 4px;
+                border: none;
+                color: white;
+            }
+        }
+    }
+
+}
